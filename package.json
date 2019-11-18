@@ -1,0 +1,8 @@
+{
+  "name": "@hostmakerco/example-npm-publish",
+  "version": "1.0.11",
+  "main": "index.js",
+  "repository": "git@github.com:hostmakerco/example-npm-publish.git",
+  "author": "Nikas Praninskas <nikaspran@gmail.com>",
+  "license": "UNLICENSED"
+}

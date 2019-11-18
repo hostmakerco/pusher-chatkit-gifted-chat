@@ -1,0 +1,42 @@
+version: 2
+
+workflows:
+  version: 2
+  test-deploy:
+    jobs:
+      - deploy:
+          context: npm_publish
+          filters:
+            branches:
+              only:
+                - production
+
+defaults: &defaults
+  working_directory: ~/repo
+  docker:
+    - image: circleci/node:10
+
+jobs:
+  deploy:
+    <<: *defaults
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: Check preconditions
+          command: |
+            if [[ -z "$NPM_AUTH_TOKEN" ]]; then
+              echo "Please set NPM_AUTH_TOKEN in the CircleCI environment config for the project";
+              exit 1;
+            fi
+      - run:
+          name: Publish package
+          command: |
+            git config --global user.email "circleci@hostmaker.co"
+            git config --global user.name "CircleCI"
+            git branch -u origin production
+            yarn config set version-git-message "[ci skip] v%s"
+            yarn version --patch
+            yarn publish --access restricted
+            git push -u origin production --follow-tags
