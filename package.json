@@ -1,8 +1,78 @@
 {
-  "name": "@hostmakerco/example-npm-publish",
-  "version": "1.0.11",
-  "main": "index.js",
-  "repository": "git@github.com:hostmakerco/example-npm-publish.git",
-  "author": "Nikas Praninskas <nikaspran@gmail.com>",
-  "license": "UNLICENSED"
+  "name": "pusher-chatkit-gifted-chat",
+  "version": "1.0.0",
+  "description": "Common components for zendesk",
+  "author": "AlexHayton",
+  "license": "MIT",
+  "repository": "hostmakerco/zendesk-apps",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "jsnext:main": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "engines": {
+    "node": ">=8",
+    "npm": ">=5"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "rollup -c -w",
+    "start": "REACT_APP_MOCK_ZENDESK=true yarn dev",
+    "build": "rollup -c",
+    "build:typescript": "tsc -p tsconfig.declarations.json",
+    "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx ./",
+    "ci:lint": "eslint --ext .js,.jsx,.ts,.tsx . --format junit --output-file ./reports/eslint/result.xml",
+    "test": "react-scripts-ts test --env=jsdom",
+    "ci:test": "cross-env JEST_JUNIT_OUTPUT=./reports/jest/result.xml CI=1 react-scripts-ts test --env=jsdom --reporters=default --reporters=jest-junit",
+    "prepare": "yarn build"
+  },
+  "dependencies": {
+    "@pusher/chatkit-client-react": "0.1.2",
+    "lodash-es": "^4.17.11",
+    "promise-each": "^2.2.0"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.5.4",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  },
+  "devDependencies": {
+    "@svgr/rollup": "^2.4.1",
+    "@types/jest": "^23.1.5",
+    "@types/react": "^16.3.13",
+    "@types/react-dom": "^16.0.5",
+    "@typescript-eslint/eslint-plugin": "^1.0.0",
+    "@typescript-eslint/parser": "^2.8.0",
+    "@zendeskgarden/react-theming": "^6.0.0",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-loader": "^8.0.5",
+    "cross-env": "^5.2.0",
+    "declaration-bundler-webpack-plugin": "^1.0.3",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-typescript": "^3.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.0",
+    "gh-pages": "^1.2.0",
+    "jest-junit": "^6.4.0",
+    "react": "^16.4.1",
+    "react-docgen-typescript-loader": "^3.1.0",
+    "react-dom": "^16.4.1",
+    "react-scripts-ts": "^3.1.0",
+    "rollup": "^0.62.0",
+    "rollup-plugin-babel": "^3.0.7",
+    "rollup-plugin-commonjs": "^9.1.3",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-peer-deps-external": "^2.2.0",
+    "rollup-plugin-postcss": "^1.6.2",
+    "rollup-plugin-sourcemaps": "^0.4.2",
+    "rollup-plugin-typescript2": "^0.17.0",
+    "rollup-plugin-url": "^1.4.0",
+    "styled-components": "3",
+    "typescript": "^3.4.5",
+    "webpack": "^4.30.0",
+    "write-file-webpack-plugin": "^4.5.0"
+  }
 }
