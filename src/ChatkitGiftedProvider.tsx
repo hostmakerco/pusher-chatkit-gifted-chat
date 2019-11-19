@@ -1,7 +1,8 @@
 import * as React from 'react';
-const { ChatkitProvider } = require('@pusher/chatkit-client-react');
 import { ActiveRoomsProvider } from './ActiveRoomsProvider';
 import { ChatRoomProvider } from './ChatRoomProvider';
+
+const { ChatkitProvider } = require('@pusher/chatkit-client-react');
 
 interface Props {
   userId: string,

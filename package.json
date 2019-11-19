@@ -29,7 +29,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn lint && yarn test"
+      "pre-commit": "yarn lint && CI=true yarn test"
     }
   },
   "dependencies": {
@@ -59,6 +59,7 @@
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.0",
     "gh-pages": "^1.2.0",
+    "husky": "^3.1.0",
     "jest-junit": "^6.4.0",
     "react": "^16.4.1",
     "react-docgen-typescript-loader": "^3.1.0",
