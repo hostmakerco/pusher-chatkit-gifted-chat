@@ -1,6 +1,8 @@
 import * as React from 'react';
-import { get, identity, debounce } from 'lodash-es';
+import get from 'lodash.get';
+import debounce from 'lodash.debounce';
 import promiseEach from 'promise-each';
+import { identity } from './common';
 import { PusherUser, GiftedMessage, ChatRoomState } from './interfaces';
 
 const { withChatkit } = require('@pusher/chatkit-client-react');

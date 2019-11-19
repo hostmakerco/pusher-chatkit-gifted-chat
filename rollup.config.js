@@ -6,6 +6,7 @@ import postcss from 'rollup-plugin-postcss';
 import resolve from 'rollup-plugin-node-resolve';
 import url from 'rollup-plugin-url';
 import json from 'rollup-plugin-json';
+import visualiser from 'rollup-plugin-visualizer';
 import svgr from '@svgr/rollup';
 
 import pkg from './package.json';
@@ -50,5 +51,6 @@ export default {
     }),
     commonjs(),
     sourceMaps(),
+    visualiser(),
   ],
 };

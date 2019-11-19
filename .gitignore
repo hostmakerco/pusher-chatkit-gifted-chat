@@ -82,3 +82,4 @@ yarn-debug.log*
 yarn-error.log*
 
 *.d.ts
+stats.html

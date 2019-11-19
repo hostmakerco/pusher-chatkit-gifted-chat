@@ -20,7 +20,6 @@
     "dev": "rollup -c -w",
     "start": "REACT_APP_MOCK_ZENDESK=true yarn dev",
     "build": "rollup -c",
-    "build:typescript": "tsc -p tsconfig.declarations.json",
     "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx ./",
     "ci:lint": "eslint --ext .js,.jsx,.ts,.tsx . --format junit --output-file ./reports/eslint/result.xml",
     "test": "react-scripts-ts test --env=jsdom",
@@ -34,8 +33,10 @@
   },
   "dependencies": {
     "@pusher/chatkit-client-react": "0.1.2",
-    "lodash-es": "^4.17.11",
-    "promise-each": "^2.2.0"
+    "lodash.debounce": "4.0.8",
+    "lodash.get": "4.4.2",
+    "lodash.sortby": "4.7.0",
+    "promise-each": "2.2.0"
   },
   "peerDependencies": {
     "prop-types": "^15.5.4",
@@ -75,6 +76,7 @@
     "rollup-plugin-sourcemaps": "^0.4.2",
     "rollup-plugin-typescript2": "^0.17.0",
     "rollup-plugin-url": "^1.4.0",
+    "rollup-plugin-visualizer": "^3.1.1",
     "styled-components": "3",
     "typescript": "^3.4.5",
     "webpack": "^4.30.0",

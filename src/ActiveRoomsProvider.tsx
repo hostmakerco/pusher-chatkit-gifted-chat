@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { identity, sortBy } from 'lodash-es';
-import { addGlobalHook } from './common';
+import sortBy from 'lodash.sortby';
+import { useChatkitGlobalHook, identity } from './common';
 import { PusherRoom } from './interfaces';
 
 const { withChatkit } = require('@pusher/chatkit-client-react');
@@ -42,33 +42,35 @@ export const ActiveRoomsProvider = withChatkit(({ chatkit, children }: Props) =>
   const [joinableRooms, setJoinableRooms] = React.useState<PusherRoom[]>([]);
   React.useEffect(() => {
     chatkit.currentUser.enablePushNotifications();
+  }, []);
 
+  React.useEffect(() => {
     const getRooms = async () => {
       const joinableRooms = await currentUser.getJoinableRooms();
       setJoinableRooms(joinableRooms);
       setLoading(false);
     };
     getRooms();
-
-    const onAddedToRoom = (addedRoom: PusherRoom) => {
-      const sortedRooms = sortRooms([addedRoom, ...activeRooms]);
-      setActiveRooms(sortedRooms);
-    };
-    addGlobalHook(chatkit, 'onAddedToRoom', onAddedToRoom);
-
-    const onRemovedFromRoom = (removedRoom: PusherRoom) => {
-      setActiveRooms(activeRooms.filter(room => room.id !== removedRoom.id));
-    };
-    addGlobalHook(chatkit, 'onRemovedFromRoom', onRemovedFromRoom);
-
-    const onRoomUpdated = (updatedRoom: PusherRoom) => {
-      const newRooms = activeRooms.filter(room => room.id !== updatedRoom.id);
-      newRooms.push(updatedRoom);
-      const sortedRooms = sortRooms(newRooms);
-      setActiveRooms(sortedRooms);
-    };
-    addGlobalHook(chatkit, 'onRoomUpdated', onRoomUpdated);
   }, []);
+
+  const onAddedToRoom = (addedRoom: PusherRoom) => {
+    const sortedRooms = sortRooms([addedRoom, ...activeRooms]);
+    setActiveRooms(sortedRooms);
+  };
+  useChatkitGlobalHook(chatkit, 'onAddedToRoom', onAddedToRoom);
+
+  const onRemovedFromRoom = (removedRoom: PusherRoom) => {
+    setActiveRooms(activeRooms.filter(room => room.id !== removedRoom.id));
+  };
+  useChatkitGlobalHook(chatkit, 'onRemovedFromRoom', onRemovedFromRoom);
+
+  const onRoomUpdated = (updatedRoom: PusherRoom) => {
+    const newRooms = activeRooms.filter(room => room.id !== updatedRoom.id);
+    newRooms.push(updatedRoom);
+    const sortedRooms = sortRooms(newRooms);
+    setActiveRooms(sortedRooms);
+  };
+  useChatkitGlobalHook(chatkit, 'onRemovedFromRoom', onRoomUpdated);
 
   return (
     <ActiveRoomsContext.Provider

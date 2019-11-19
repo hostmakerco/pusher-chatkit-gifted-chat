@@ -12,16 +12,15 @@ interface Props {
 }
 
 export const ChatkitGiftedProvider = ({ userId, instanceLocator, tokenProvider, children }: Props) => {
-  const userIdIsString = typeof userId === 'string';
-  if (!userId || !userIdIsString) {
-    throw new Error('Please ensure you set userId to a string otherwise chat won\'t work!');
+  if (!userId) {
+    throw new Error('Please ensure you set userId otherwise ChatkitGiftedProvider won\'t work!');
   }
 
   return (
     <ChatkitProvider
       instanceLocator={instanceLocator}
       tokenProvider={tokenProvider}
-      userId={userId}
+      userId={userId.toString()}
     >
       <ActiveRoomsProvider>
         <ChatRoomProvider>

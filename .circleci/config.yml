@@ -87,4 +87,5 @@ jobs:
             git branch -u origin production
             yarn config set version-git-message "[ci skip] v%s"
             yarn version --patch
+            yarn publish --access public
             git push -u origin production --follow-tags
