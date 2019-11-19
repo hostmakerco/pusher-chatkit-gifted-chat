@@ -5,10 +5,17 @@ workflows:
   test-deploy:
     jobs:
       - install
-      - lint
-      - test
+      - lint:
+          requires:
+            - install
+      - test:
+          requires:
+            - install
       - deploy:
           context: npm_publish
+          requires:
+            - lint
+            - test
           filters:
             branches:
               only:
