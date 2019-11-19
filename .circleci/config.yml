@@ -44,7 +44,6 @@ jobs:
       - checkout
       - attach_workspace:
           at: /tmp/src
-      - bootstrap
       - run: yarn ci:lint
       - store_test_results:
           path: ./reports
@@ -55,7 +54,6 @@ jobs:
       - checkout
       - attach_workspace:
           at: /tmp/src
-      - bootstrap
       - run: yarn ci:test
       - store_test_results:
           path: ./reports
