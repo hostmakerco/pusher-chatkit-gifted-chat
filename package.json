@@ -4,7 +4,7 @@
   "description": "Common components for zendesk",
   "author": "AlexHayton",
   "license": "MIT",
-  "repository": "hostmakerco/zendesk-apps",
+  "repository": "git@github.com:hostmakerco/pusher-chatkit-gifted-chat.git",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
