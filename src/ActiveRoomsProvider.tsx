@@ -13,8 +13,8 @@ interface CreateRoomParams {
 export interface ActiveRoomsState {
   loading: boolean,
   activeRooms: PusherRoom[],
-  joinableRooms: PusherRoom[], // TODO: Remove after we put this into hostmaker-api.
-  createRoom(room: CreateRoomParams): void, // TODO: Remove after we put this into hostmaker-api.
+  joinableRooms: PusherRoom[],
+  createRoom(room: CreateRoomParams): void,
 }
 
 export const ActiveRoomsContext = React.createContext<ActiveRoomsState>({

@@ -27,6 +27,11 @@
     "ci:test": "cross-env JEST_JUNIT_OUTPUT=./reports/jest/result.xml CI=1 react-scripts-ts test --env=jsdom --reporters=default --reporters=jest-junit",
     "prepare": "yarn build"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint && yarn test"
+    }
+  },
   "dependencies": {
     "@pusher/chatkit-client-react": "0.1.2",
     "lodash-es": "^4.17.11",
@@ -34,8 +39,7 @@
   },
   "peerDependencies": {
     "prop-types": "^15.5.4",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react": "^16.0.0"
   },
   "devDependencies": {
     "@svgr/rollup": "^2.4.1",
