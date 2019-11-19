@@ -4,12 +4,15 @@ workflows:
   version: 2
   test-deploy:
     jobs:
+      - install
+      - lint
+      - test
       - deploy:
           context: npm_publish
           filters:
             branches:
               only:
-                - production
+                - master
 
 defaults: &defaults
   working_directory: ~/repo
