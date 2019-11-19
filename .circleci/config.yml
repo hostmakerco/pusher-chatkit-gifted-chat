@@ -50,7 +50,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: /tmp/src
+          at: ~/repo
       - run: yarn ci:lint
       - store_test_results:
           path: ./reports
@@ -60,7 +60,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: /tmp/src
+          at: ~/repo
       - run: yarn ci:test
       - store_test_results:
           path: ./reports
