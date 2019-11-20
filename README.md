@@ -3,7 +3,7 @@
 ![github stars](https://img.shields.io/github/stars/hostmakerco/pusher-chatkit-gifted-chat.svg)
 [![CircleCI](https://circleci.com/gh/hostmakerco/pusher-chatkit-gifted-chat.svg?style=svg)](https://circleci.com/gh/hostmakerco/pusher-chatkit-gifted-chat)
 
-A helpful wrapper for [Pusher Chatkit](https://pusher.com/chatkit) to make it super easy to use it with `react-native-gifted-chat` or `react-web-gifted-chat`
+A helpful wrapper for [Pusher Chatkit](https://pusher.com/chatkit) to make it super easy to use with `react-native-gifted-chat` or `react-web-gifted-chat`
 
 ## Installation
 
@@ -43,6 +43,8 @@ export const ChatWindowWithoutRedux = ({ user }: Props) => (
 ```
 
 ### Get the list of rooms
+
+The framework subscribes to updates for you so you will get updates to participants/unreadCount/joining/leaving rooms in real time.
 
 ```jsx
 import { ActiveRoomsContext } from 'pusher-chatkit-gifted-chat';
