@@ -9,6 +9,7 @@ workflows:
           requires:
             - install
       - test:
+          context: npm_publish
           requires:
             - install
       - deploy:
@@ -62,6 +63,7 @@ jobs:
       - attach_workspace:
           at: ~/repo
       - run: yarn ci:test
+      - run: echo AUTH TOKEN IS $NPM_AUTH_TOKEN
       - store_test_results:
           path: ./reports
 
