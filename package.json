@@ -1,8 +1,61 @@
 {
-  "name": "@hostmakerco/example-npm-publish",
-  "version": "1.0.11",
-  "main": "index.js",
-  "repository": "git@github.com:hostmakerco/example-npm-publish.git",
-  "author": "Nikas Praninskas <nikaspran@gmail.com>",
-  "license": "UNLICENSED"
+  "name": "pusher-chatkit-gifted-chat",
+  "version": "1.0.4",
+  "description": "Common components for zendesk",
+  "author": "AlexHayton",
+  "license": "MIT",
+  "repository": "git@github.com:hostmakerco/pusher-chatkit-gifted-chat.git",
+  "main": "dist/pusher-chatkit-gifted-chat.js",
+  "umd:main": "dist/pusher-chatkit-gifted-chat.umd.js",
+  "source": "src/index.ts",
+  "types": "dist/index.d.ts",
+  "engines": {
+    "node": ">=8",
+    "npm": ">=5"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "microbundle watch",
+    "start": "yarn dev",
+    "build": "microbundle",
+    "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx ./",
+    "ci:lint": "eslint --ext .js,.jsx,.ts,.tsx . --format junit --output-file ./reports/eslint/result.xml",
+    "test": "react-scripts-ts test --env=jsdom",
+    "ci:test": "cross-env JEST_JUNIT_OUTPUT=./reports/jest/result.xml CI=1 react-scripts-ts test --env=jsdom --reporters=default --reporters=jest-junit",
+    "prepare": "yarn build"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint && CI=true yarn test"
+    }
+  },
+  "dependencies": {
+    "@pusher/chatkit-client-react": "0.1.2"
+  },
+  "peerDependencies": {
+    "lodash": ">=4.14",
+    "react": ">=16.8.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.1.5",
+    "@types/react": "^16.3.13",
+    "@types/react-dom": "^16.0.5",
+    "@typescript-eslint/eslint-plugin": "^1.0.0",
+    "@typescript-eslint/parser": "^2.8.0",
+    "cross-env": "^5.2.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-typescript": "^3.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.0",
+    "husky": "^3.1.0",
+    "jest-junit": "^6.4.0",
+    "lodash": "^4.17.15",
+    "microbundle": "^0.11.0",
+    "react": "^16.4.1",
+    "react-scripts-ts": "^3.1.0",
+    "typescript": "^3.7.2"
+  }
 }

@@ -4,12 +4,22 @@ workflows:
   version: 2
   test-deploy:
     jobs:
+      - install
+      - lint:
+          requires:
+            - install
+      - test:
+          requires:
+            - install
       - deploy:
           context: npm_publish
+          requires:
+            - lint
+            - test
           filters:
             branches:
               only:
-                - production
+                - master
 
 defaults: &defaults
   working_directory: ~/repo
@@ -17,6 +27,45 @@ defaults: &defaults
     - image: circleci/node:10
 
 jobs:
+  install:
+    <<: *defaults
+    steps:
+      - checkout
+      - run: node --version
+      - restore_cache:
+          keys:
+          - v3-dependencies-{{ checksum "yarn.lock" }}
+      - run: yarn --frozen-lockfile
+      - save_cache:
+          paths:
+            - node_modules
+          key: v3-dependencies-{{ checksum "yarn.lock" }}
+      - persist_to_workspace:
+          root: .
+          paths:
+            - node_modules
+
+  lint:
+    <<: *defaults
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/repo
+      - run: yarn ci:lint
+      - store_test_results:
+          path: ./reports
+
+  test:
+    <<: *defaults
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/repo
+      - run: yarn ci:test
+      - store_test_results:
+          path: ./reports
+
+
   deploy:
     <<: *defaults
     steps:
@@ -38,5 +87,5 @@ jobs:
             git branch -u origin production
             yarn config set version-git-message "[ci skip] v%s"
             yarn version --patch
-            yarn publish --access restricted
+            yarn publish --access public
             git push -u origin production --follow-tags

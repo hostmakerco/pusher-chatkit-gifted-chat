@@ -1,0 +1,96 @@
+{
+    "extends": [
+      "airbnb-typescript"
+    ],
+    "globals": {
+      "ZAFClient": true
+    },
+    "rules": {
+      "no-param-reassign": "off",
+      "no-shadow": "off",
+      "no-use-before-define": [
+        "error",
+        "nofunc"
+      ],
+      "prefer-const": "error",
+      "max-len": [
+        "error",
+        {
+          "code": 120,
+          "ignoreTrailingComments": true
+        }
+      ],
+      "comma-dangle": [
+        "error",
+        {
+          "arrays": "always-multiline",
+          "objects": "always-multiline",
+          "imports": "always-multiline",
+          "exports": "always-multiline",
+          "functions": "never"
+        }
+      ],
+      "object-curly-newline": [
+        "error",
+        {
+          "ObjectExpression": {
+            "minProperties": 10,
+            "multiline": true,
+            "consistent": true
+          },
+          "ObjectPattern": {
+            "minProperties": 10,
+            "multiline": true,
+            "consistent": true
+          },
+          "ImportDeclaration": {
+            "minProperties": 10,
+            "multiline": true,
+            "consistent": true
+          },
+          "ExportDeclaration": {
+            "minProperties": 10,
+            "multiline": true,
+            "consistent": true
+          }
+        }
+      ],
+      "operator-linebreak": [
+        "error",
+        "after"
+      ],
+      "import/prefer-default-export": "off",
+      "import/no-named-as-default": "off",
+      "react/destructuring-assignment": "off",
+      "import/no-extraneous-dependencies": [
+        "error",
+        {
+          "devDependencies": [
+            "craco.config.js",
+            "rollup.config.js",
+            "**/*.stories.tsx",
+            "**/*.test.js",
+            "**/*.spec.js"
+          ]
+        }
+      ],
+      "react/jsx-filename-extension": [
+        "error",
+        {
+          "extensions": [
+            ".js",
+            ".jsx",
+            ".ts",
+            ".tsx"
+          ]
+        }
+      ],
+      "react/jsx-one-expression-per-line": "off",
+      "react/sort-comp": "off"
+    },
+    "env": {
+      "browser": true,
+      "jest": true
+    }
+  }
+  
