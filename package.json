@@ -31,6 +31,11 @@
       "pre-commit": "yarn lint && CI=true yarn test"
     }
   },
+  "resolutions": {
+    "mem": "^4.0.0",
+    "js-yaml": "^3.13.1",
+    "webpack-dev-server": "^3.1.11"
+  },
   "dependencies": {
     "@pusher/chatkit-client-react": "0.1.2"
   },
