@@ -1,5 +1,5 @@
 import * as React from 'react';
-import sortBy from 'lodash.sortby';
+import { sortBy } from 'lodash';
 import { useChatkitGlobalHook, identity } from './common';
 import { PusherRoom } from './interfaces';
 

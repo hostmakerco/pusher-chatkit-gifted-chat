@@ -1,6 +1,5 @@
 import * as React from 'react';
-import get from 'lodash.get';
-import debounce from 'lodash.debounce';
+import { debounce, get } from 'lodash';
 import { identity } from './common';
 import { PusherUser, GiftedMessage, ChatRoomState } from './interfaces';
 

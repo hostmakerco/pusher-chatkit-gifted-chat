@@ -1,5 +1,5 @@
 import * as React from 'react';
-import get from 'lodash.get';
+import { get } from 'lodash';
 
 export const useChatkitGlobalHook = (chatkit: any, name: string, hook: Function) => (
   React.useEffect(() => {
