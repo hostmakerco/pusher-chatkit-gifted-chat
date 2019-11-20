@@ -3,8 +3,6 @@ import { debounce, get } from 'lodash';
 import { identity } from './common';
 import { PusherUser, GiftedMessage, ChatRoomState } from './interfaces';
 
-const promiseEach = require('promise-each');
-
 const { withChatkit } = require('@pusher/chatkit-client-react');
 
 interface MessagePart {
@@ -60,12 +58,13 @@ export const ChatRoomProvider = withChatkit(({ chatkit, children }: Props) => {
   };
 
   const onSend = async (messages: GiftedMessage[]) => {
-    promiseEach(messages, async (message: GiftedMessage) => {
+    // eslint-disable-next-line no-restricted-syntax
+    for await (const message of messages) {
       currentUser.sendSimpleMessage({
         roomId: currentRoomId,
         text: message.text,
       });
-    });
+    }
   };
 
   React.useEffect(() => {

@@ -1,6 +1,6 @@
 {
   "name": "pusher-chatkit-gifted-chat",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Common components for zendesk",
   "author": "AlexHayton",
   "license": "MIT",
@@ -18,7 +18,7 @@
   ],
   "scripts": {
     "dev": "microbundle watch",
-    "start": "REACT_APP_MOCK_ZENDESK=true yarn dev",
+    "start": "yarn dev",
     "build": "microbundle",
     "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx ./",
     "ci:lint": "eslint --ext .js,.jsx,.ts,.tsx . --format junit --output-file ./reports/eslint/result.xml",
@@ -32,8 +32,7 @@
     }
   },
   "dependencies": {
-    "@pusher/chatkit-client-react": "0.1.2",
-    "promise-each": "2.2.0"
+    "@pusher/chatkit-client-react": "0.1.2"
   },
   "peerDependencies": {
     "lodash": ">=4.14",
@@ -56,6 +55,7 @@
     "lodash": "^4.17.15",
     "microbundle": "^0.11.0",
     "react": "^16.4.1",
-    "react-scripts-ts": "^3.1.0"
+    "react-scripts-ts": "^3.1.0",
+    "typescript": "^3.7.2"
   }
 }
