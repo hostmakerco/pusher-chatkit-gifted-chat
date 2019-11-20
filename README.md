@@ -1,5 +1,7 @@
 # Pusher Chatkit Gifted Chat
 
+Build Status: [![CircleCI](https://circleci.com/gh/hostmakerco/pusher-chatkit-gifted-chat.svg?style=svg)](https://circleci.com/gh/hostmakerco/pusher-chatkit-gifted-chat)
+
 A helpful wrapper for [Pusher Chatkit](https://pusher.com/chatkit) to make it super easy to use it with `react-native-gifted-chat` or `react-web-gifted-chat`
 
 ## Installation
