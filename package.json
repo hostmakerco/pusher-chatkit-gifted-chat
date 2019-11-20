@@ -1,6 +1,6 @@
 {
   "name": "pusher-chatkit-gifted-chat",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Common components for zendesk",
   "author": "AlexHayton",
   "license": "MIT",
@@ -36,8 +36,8 @@
     "promise-each": "2.2.0"
   },
   "peerDependencies": {
-    "react": ">=16.8.0",
-    "lodash": ">=4.14"
+    "lodash": ">=4.14",
+    "react": ">=16.8.0"
   },
   "devDependencies": {
     "@types/jest": "^23.1.5",
