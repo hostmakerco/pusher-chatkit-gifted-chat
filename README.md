@@ -1,9 +1,16 @@
 # Pusher Chatkit Gifted Chat
 
-![github stars](https://img.shields.io/github/stars/hostmakerco/pusher-chatkit-gifted-chat.svg)
-[![CircleCI](https://circleci.com/gh/hostmakerco/pusher-chatkit-gifted-chat.svg?style=svg)](https://circleci.com/gh/hostmakerco/pusher-chatkit-gifted-chat)
+[![dependencies](https://img.shields.io/david/hostmakerco/pusher-chatkit-gifted-chat)](https://david-dm.org/hostmakerco/pusher-chatkit-gifted-chat)
+[![npm version](https://badge.fury.io/js/pusher-chatkit-gifted-chat.svg)](https://www.npmjs.com/package/pusher-chatkit-gifted-chat)
+[![issues](https://img.shields.io/github/issues/hostmakerco/pusher-chatkit-gifted-chat)](https://github.com/hostmakerco/pusher-chatkit-gifted-chat/issues)
+[![pull requests](https://img.shields.io/github/issues-pr/hostmakerco/pusher-chatkit-gifted-chat)](https://github.com/hostmakerco/pusher-chatkit-gifted-chat/pulls)
+[![github stars](https://img.shields.io/github/stars/hostmakerco/pusher-chatkit-gifted-chat.svg)](https://github.com/hostmakerco/pusher-chatkit-gifted-chat/stargazers)
 
 A helpful wrapper for [Pusher Chatkit](https://pusher.com/chatkit) to make it super easy to use with `react-native-gifted-chat` or `react-web-gifted-chat`
+
+## Demo
+
+![Demo](demo.gif)
 
 ## Installation
 
