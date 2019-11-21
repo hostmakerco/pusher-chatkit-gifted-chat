@@ -8,6 +8,14 @@
 
 A helpful wrapper for [Pusher Chatkit](https://pusher.com/chatkit) to make it super easy to use with `react-native-gifted-chat` or `react-web-gifted-chat`
 
+ - [Installation](#installation)
+  - [Getting started](#getting-started)
+  - [Usage](#usage)
+    - [Connect to pusher](#connect-to-pusher)
+    - [Get the list of rooms](#get-the-list-of-rooms)
+    - [Set the current room](#set-the-current-room)
+    - [Render messages for the current room](#render-messages-for-the-current-room)
+
 ## Demo
 
 ![Demo](demo.gif)
@@ -86,7 +94,7 @@ const JoinRoom = ({ room: { id, name, unreadCount } }: RoomProps) => {
 }
 ```
 
-### Render messages for the current room
+### Render messages for the current room
 
 ```jsx
 import { ChatRoomContext } from 'pusher-chatkit-gifted-chat';
