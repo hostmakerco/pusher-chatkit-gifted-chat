@@ -73,7 +73,6 @@ export const ActiveRoomsProvider = withChatkit(({ chatkit, children }: Props) =>
   };
   useChatkitGlobalHook(chatkit, 'onRoomUpdated', onRoomUpdated);
 
-
   return (
     <ActiveRoomsContext.Provider
       value={{
