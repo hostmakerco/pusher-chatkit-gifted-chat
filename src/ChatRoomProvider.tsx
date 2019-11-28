@@ -125,7 +125,7 @@ export const ChatRoomProvider = withChatkit(({ chatkit, children }: Props) => {
         },
         messageLimit: 20,
       });
-      setParticipants(room.participants);
+      setParticipants(room.users);
       setLoading(false);
     };
     loadNewRoom();

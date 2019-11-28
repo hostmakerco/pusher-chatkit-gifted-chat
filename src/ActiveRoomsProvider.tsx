@@ -71,7 +71,7 @@ export const ActiveRoomsProvider = withChatkit(({ chatkit, children }: Props) =>
     const sortedRooms = sortRooms(newRooms);
     setActiveRooms(sortedRooms);
   };
-  useChatkitGlobalHook(chatkit, 'onRemovedFromRoom', onRoomUpdated);
+  useChatkitGlobalHook(chatkit, 'onRoomUpdated', onRoomUpdated);
 
   return (
     <ActiveRoomsContext.Provider
