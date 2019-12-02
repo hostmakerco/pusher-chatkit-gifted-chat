@@ -42,7 +42,9 @@ export const ActiveRoomsProvider = withChatkit(({ chatkit, children }: Props) =>
   const [joinableRooms, setJoinableRooms] = React.useState<PusherRoom[]>([]);
 
   React.useEffect(() => {
-    chatkit.currentUser.enablePushNotifications();
+    if (typeof document !== 'undefined') {
+      chatkit.currentUser.enablePushNotifications();
+    }
   }, []);
 
   React.useEffect(() => {
