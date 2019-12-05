@@ -21,7 +21,8 @@ export interface PusherRoom {
 }
 
 export interface GiftedMessage {
-  id: string,
+  id: string, // This is used by react-web-gifted-chat
+  _id: string, // This is used by react-native-gifted-chat
   text: string,
   user: PusherUser,
   createdAt: Date,
