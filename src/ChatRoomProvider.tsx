@@ -112,6 +112,7 @@ export const ChatRoomProvider = withChatkit(({ chatkit, children }: Props) => {
           onMessage: (message: MessageFromPusher) => {
             const newMessage: GiftedMessage = {
               id: message.id,
+              _id: message.id,
               text: getPayload(message),
               user: message.sender,
               createdAt: new Date(message.createdAt),
