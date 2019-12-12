@@ -20,6 +20,18 @@ export interface PusherRoom {
   userIds: string[],
 }
 
+export interface MessagePart {
+  partType: 'inline' | 'url' | 'attachment',
+  payload: any,
+}
+
+export interface MessageFromPusher {
+  id: string,
+  parts: MessagePart[],
+  sender: PusherUser,
+  createdAt: Date,
+}
+
 export interface GiftedMessage {
   id: string, // This is used by react-web-gifted-chat
   _id: string, // This is used by react-native-gifted-chat
