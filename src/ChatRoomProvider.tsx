@@ -1,21 +1,10 @@
 import * as React from 'react';
-import { debounce, get } from 'lodash';
+import { debounce } from 'lodash';
 import { identity } from './common';
-import { PusherUser, GiftedMessage, ChatRoomState } from './interfaces';
+import { PusherUser, GiftedMessage, ChatRoomState, MessageFromPusher } from './interfaces';
+import { toGiftedChatMessage } from './utils';
 
 const { withChatkit } = require('@pusher/chatkit-client-react');
-
-interface MessagePart {
-  partType: 'inline' | 'url' | 'attachment',
-  payload: any,
-}
-
-interface MessageFromPusher {
-  id: string,
-  parts: MessagePart[],
-  sender: PusherUser,
-  createdAt: Date,
-}
 
 interface Props {
   chatkit: any,
@@ -34,11 +23,6 @@ const defaultState: ChatRoomState = {
 };
 
 export const ChatRoomContext = React.createContext<ChatRoomState>(defaultState);
-
-const getPayload = (message: MessageFromPusher) => get(
-  message,
-  'parts[0[.payload.content', 'Cannot render this message'
-);
 
 const usersWhoAreTypingBuffer: any = {};
 const messageBuffer: GiftedMessage[] = [];
@@ -110,13 +94,7 @@ export const ChatRoomProvider = withChatkit(({ chatkit, children }: Props) => {
         roomId: currentRoomId,
         hooks: {
           onMessage: (message: MessageFromPusher) => {
-            const newMessage: GiftedMessage = {
-              id: message.id,
-              _id: message.id,
-              text: getPayload(message),
-              user: message.sender,
-              createdAt: new Date(message.createdAt),
-            };
+            const newMessage = toGiftedChatMessage(message);
             messageBuffer.push(newMessage);
             setMessages([...messageBuffer]);
             onReadMessage(newMessage.id);
