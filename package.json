@@ -1,6 +1,6 @@
 {
   "name": "pusher-chatkit-gifted-chat",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "A helpful wrapper for Pusher Chatkit to make it super easy to use with react-native-gifted-chat or react-web-gifted-chat",
   "author": "AlexHayton",
   "license": "MIT",
