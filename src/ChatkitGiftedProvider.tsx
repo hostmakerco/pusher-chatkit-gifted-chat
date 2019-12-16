@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { ActiveRoomsProvider } from './ActiveRoomsProvider';
 import { ChatRoomProvider } from './ChatRoomProvider';
+import { ChatKitSessionProvider } from './ChatkitSessionProvider';
 
 const { ChatkitProvider } = require('@pusher/chatkit-client-react');
 
@@ -22,11 +23,13 @@ export const ChatkitGiftedProvider = ({ userId, instanceLocator, tokenProvider, 
       tokenProvider={tokenProvider}
       userId={userId.toString()}
     >
-      <ActiveRoomsProvider>
-        <ChatRoomProvider>
-          {children}
-        </ChatRoomProvider>
-      </ActiveRoomsProvider>
+      <ChatKitSessionProvider>
+        <ActiveRoomsProvider>
+          <ChatRoomProvider>
+            {children}
+          </ChatRoomProvider>
+        </ActiveRoomsProvider>
+      </ChatKitSessionProvider>
     </ChatkitProvider>
   );
 };

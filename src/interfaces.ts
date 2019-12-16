@@ -50,3 +50,8 @@ export interface ChatRoomState {
   onInputTextChanged(inputText: string): void,
   setCurrentRoomId(roomId: string): void,
 }
+
+
+export interface ChatKitSessionState {
+  disconnect(): void,
+}
