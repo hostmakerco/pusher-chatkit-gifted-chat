@@ -1,13 +1,14 @@
 import * as React from 'react';
 import { debounce } from 'lodash';
+import { PusherUser, PusherMessage } from '@pusher/chatkit-client';
 import { identity } from './common';
-import { PusherUser, GiftedMessage, ChatRoomState, MessageFromPusher } from './interfaces';
+import { PusherChatkit, GiftedMessage, ChatRoomState } from './interfaces';
 import { toGiftedChatMessage } from './utils';
 
 const { withChatkit } = require('@pusher/chatkit-client-react');
 
 interface Props {
-  chatkit: any,
+  chatkit: PusherChatkit,
   user: PusherUser,
   children: React.ReactChild,
 }
@@ -36,12 +37,20 @@ export const ChatRoomProvider = withChatkit(({ chatkit, children }: Props) => {
   const [messages, setMessages] = React.useState<GiftedMessage[]>([]);
 
   const onInputTextChanged = async (text: string) => {
+    if (!currentRoomId) {
+      return;
+    }
+
     if (text.length) {
       await currentUser.isTypingIn({ roomId: currentRoomId });
     }
   };
 
   const onSend = async (messages: GiftedMessage[]) => {
+    if (!currentRoomId) {
+      return;
+    }
+
     // eslint-disable-next-line no-restricted-syntax
     for await (const message of messages) {
       currentUser.sendSimpleMessage({
@@ -90,10 +99,10 @@ export const ChatRoomProvider = withChatkit(({ chatkit, children }: Props) => {
       setMessages([]);
 
       setLoading(true);
-      const room = await currentUser.subscribeToRoomMultipart({
+      await currentUser.subscribeToRoomMultipart({
         roomId: currentRoomId,
         hooks: {
-          onMessage: (message: MessageFromPusher) => {
+          onMessage: (message: PusherMessage) => {
             const newMessage = toGiftedChatMessage(message);
             messageBuffer.push(newMessage);
             setMessages([...messageBuffer]);
@@ -104,6 +113,10 @@ export const ChatRoomProvider = withChatkit(({ chatkit, children }: Props) => {
         },
         messageLimit: 20,
       });
+      const room = await currentUser.rooms.find(room => room.id === currentRoomId);
+      if (!room) {
+        return;
+      }
       setParticipants(room.users);
       setLoading(false);
     };

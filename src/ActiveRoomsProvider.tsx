@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { sortBy } from 'lodash';
+import { PusherRoom } from '@pusher/chatkit-client';
 import { useChatkitGlobalHook, identity } from './common';
-import { PusherRoom } from './interfaces';
+import { PusherChatkit } from './interfaces';
 
 const { withChatkit } = require('@pusher/chatkit-client-react');
 
@@ -27,7 +28,7 @@ export const ActiveRoomsContext = React.createContext<ActiveRoomsState>({
 const sortRooms = (rooms: PusherRoom[]) => sortBy(rooms, ({ unreadCount, name }) => `${9999 - unreadCount}-${name}`);
 
 interface Props {
-  chatkit: any,
+  chatkit: PusherChatkit,
   children: React.ReactChild,
 }
 

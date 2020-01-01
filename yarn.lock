@@ -219,6 +219,11 @@
   resolved "https://registry.yarnpkg.com/@pusher/chatkit-client/-/chatkit-client-1.13.2.tgz#144dfc01c51386bf843e880927b286f73e15290f"
   integrity sha512-XJl63igmHnhLYcK82VK4+y+VIAuFlG/LBh2PjqUFv4tsOEAxzSLZ88scO/3vPD+bF2DxQCe/zJjzShbnSjGC9w==
 
+"@pusher/chatkit-client@^1.13.3":
+  version "1.13.3"
+  resolved "https://registry.yarnpkg.com/@pusher/chatkit-client/-/chatkit-client-1.13.3.tgz#e2fadb324815a2c761f0429de7262613b0987fc3"
+  integrity sha512-/soRKrCOVjzP75aXjYkSp7gzt9nChD3PaqXg06P/wDYidA1AUKNnFnxbrHpHQxcocPt7Kcegih7kKpeW+GIpiw==
+
 "@types/eslint-visitor-keys@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@types/eslint-visitor-keys/-/eslint-visitor-keys-1.0.0.tgz#1ee30d79544ca84d68d4b3cdb0af4f205663dd2d"
@@ -297,6 +302,11 @@
   version "15.7.3"
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.3.tgz#2ab0d5da2e5815f94b0b9d4b95d1e5f243ab2ca7"
   integrity sha512-KfRL3PuHmqQLOG+2tGpRO26Ctg+Cq1E01D2DMriKEATHgWLfeNDmq9e29Q9WIky0dQ3NPkd1mzYH8Lm936Z9qw==
+
+"@types/pusher__chatkit-client@^1.13.0":
+  version "1.13.0"
+  resolved "https://registry.yarnpkg.com/@types/pusher__chatkit-client/-/pusher__chatkit-client-1.13.0.tgz#b86d6cdfc7d48ca4629364e54b46b77701c0eaa1"
+  integrity sha512-siMZU8R3r77NLqn8qTD8/2MX+BvJDNABm3Qk76HWdGxsy+F/ZeABLCrUxazmRFOO1+5bEigsPZzLPAdkl7nq4A==
 
 "@types/q@^1.5.1":
   version "1.5.2"

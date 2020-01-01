@@ -1,15 +1,16 @@
 import { get } from 'lodash';
-import { GiftedMessage, MessageFromPusher } from './interfaces';
+import { PusherMessage } from '@pusher/chatkit-client';
+import { GiftedMessage } from './interfaces';
 
-const getPayload = (message: MessageFromPusher) => get(
+const getPayload = (message: PusherMessage) => get(
   message,
   'parts[0].payload.content', 'Cannot render this message'
 );
 
-export function toGiftedChatMessage(message: MessageFromPusher): GiftedMessage {
+export function toGiftedChatMessage(message: PusherMessage): GiftedMessage {
   return {
-    id: message.id,
-    _id: message.id,
+    id: message.id.toString(),
+    _id: message.id.toString(),
     text: getPayload(message),
     user: message.sender,
     createdAt: new Date(message.createdAt),

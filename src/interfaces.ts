@@ -1,23 +1,8 @@
-export interface PusherUser {
-  avatarURL?: string,
-  createdAt: string,
-  customData?: any,
-  id: string,
-  name: string,
-  updatedAt: string,
-}
+import { CurrentUser, PusherUser } from '@pusher/chatkit-client';
 
-export interface PusherRoom {
-  id: string,
-  createdAt: string,
-  createdByUserId: string,
-  customData?: any,
-  isPrivate: boolean,
-  lastMessageAt: string,
-  name: string,
-  unreadCount: number,
-  updatedAt: string,
-  userIds: string[],
+export interface PusherChatkit {
+  currentUser: CurrentUser,
+  isLoading: boolean,
 }
 
 export interface MessagePart {
