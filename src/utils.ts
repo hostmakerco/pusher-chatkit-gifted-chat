@@ -11,7 +11,7 @@ export function toGiftedChatMessage(message: MessageFromPusher): GiftedMessage {
     id: message.id,
     _id: message.id,
     text: getPayload(message),
-    user: message.sender,
+    user: { ...message.sender, _id: message.sender.id },
     createdAt: new Date(message.createdAt),
   };
 }

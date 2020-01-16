@@ -7,6 +7,16 @@ export interface PusherUser {
   updatedAt: string,
 }
 
+export interface GiftedUser {
+  avatarURL?: string,
+  createdAt: string,
+  customData?: any,
+  id: string,
+  _id: string,
+  name: string,
+  updatedAt: string,
+}
+
 export interface PusherRoom {
   id: string,
   createdAt: string,
@@ -36,7 +46,7 @@ export interface GiftedMessage {
   id: string, // This is used by react-web-gifted-chat
   _id: string, // This is used by react-native-gifted-chat
   text: string,
-  user: PusherUser,
+  user: GiftedUser,
   createdAt: Date,
 }
 
