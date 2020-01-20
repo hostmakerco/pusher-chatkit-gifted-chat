@@ -303,10 +303,10 @@
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.3.tgz#2ab0d5da2e5815f94b0b9d4b95d1e5f243ab2ca7"
   integrity sha512-KfRL3PuHmqQLOG+2tGpRO26Ctg+Cq1E01D2DMriKEATHgWLfeNDmq9e29Q9WIky0dQ3NPkd1mzYH8Lm936Z9qw==
 
-"@types/pusher__chatkit-client@^1.13.0":
-  version "1.13.0"
-  resolved "https://registry.yarnpkg.com/@types/pusher__chatkit-client/-/pusher__chatkit-client-1.13.0.tgz#b86d6cdfc7d48ca4629364e54b46b77701c0eaa1"
-  integrity sha512-siMZU8R3r77NLqn8qTD8/2MX+BvJDNABm3Qk76HWdGxsy+F/ZeABLCrUxazmRFOO1+5bEigsPZzLPAdkl7nq4A==
+"@types/pusher__chatkit-client@^1.13.1":
+  version "1.13.1"
+  resolved "https://registry.yarnpkg.com/@types/pusher__chatkit-client/-/pusher__chatkit-client-1.13.1.tgz#31cca0e5e3e86f424b0c543fc47bd4895268ac7a"
+  integrity sha512-qmQPWEK/bOigCzZQerpPlovc+SiS1uBLe4ALABulietApXMbCGTBnpmylGgyLhrnvWEkPKmBN+gkV0wMuNn5rQ==
 
 "@types/q@^1.5.1":
   version "1.5.2"

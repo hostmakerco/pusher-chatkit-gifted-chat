@@ -99,7 +99,7 @@ export const ChatRoomProvider = withChatkit(({ chatkit, children }: Props) => {
       setMessages([]);
 
       setLoading(true);
-      await currentUser.subscribeToRoomMultipart({
+      const room = await currentUser.subscribeToRoomMultipart({
         roomId: currentRoomId,
         hooks: {
           onMessage: (message: PusherMessage) => {
@@ -113,7 +113,6 @@ export const ChatRoomProvider = withChatkit(({ chatkit, children }: Props) => {
         },
         messageLimit: 20,
       });
-      const room = await currentUser.rooms.find(room => room.id === currentRoomId);
       if (!room) {
         return;
       }
