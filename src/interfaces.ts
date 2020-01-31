@@ -48,6 +48,7 @@ export interface GiftedMessage {
   text: string,
   user: GiftedUser,
   createdAt: Date,
+  image: string,
 }
 
 export interface ChatRoomState {

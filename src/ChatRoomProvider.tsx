@@ -51,6 +51,16 @@ export const ChatRoomProvider = withChatkit(({ chatkit, children }: Props) => {
     }
   };
 
+  const onSendAttachment = async (attachmentUrl: string) => {
+    currentUser.sendMultipartMessage({
+      roomId: currentRoomId,
+      parts: [{
+        type: 'image/jpeg',
+        url: attachmentUrl,
+      }]
+    });
+  }
+
   React.useEffect(() => {
     if (!currentRoomId) {
       return;
@@ -133,6 +143,7 @@ export const ChatRoomProvider = withChatkit(({ chatkit, children }: Props) => {
         participants,
         footer,
         onSend,
+        onSendAttachment,
         onInputTextChanged,
         setCurrentRoomId,
       }}
