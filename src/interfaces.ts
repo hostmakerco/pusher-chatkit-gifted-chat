@@ -58,7 +58,7 @@ export interface ChatRoomState {
   participants: PusherUser[],
   footer?: string,
   onSend(messages: GiftedMessage[]): void,
-  onSendAttachment(messages: GiftedMessage[]): void,
+  onSendAttachment(attachmentUrl: string): void,
   onInputTextChanged(inputText: string): void,
   setCurrentRoomId(roomId: string): void,
 }
