@@ -9,7 +9,7 @@ const getPayload = (message: MessageFromPusher) => get(
 const getImage = (message: MessageFromPusher) => get(
   message,
   'parts[0].url'
-)
+);
 
 export function toGiftedChatMessage(message: MessageFromPusher): GiftedMessage {
   return {

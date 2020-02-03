@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/stefanilie/Projects/halp/pusher-chatkit-gifted-chat/src/ActiveRoomsProvider.tsx">
+<testcase time="0" name="/Users/stefanilie/Projects/halp/pusher-chatkit-gifted-chat/src/ActiveRoomsProvider.tsx" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/stefanilie/Projects/halp/pusher-chatkit-gifted-chat/src/ChatkitGiftedProvider.tsx">
+<testcase time="0" name="/Users/stefanilie/Projects/halp/pusher-chatkit-gifted-chat/src/ChatkitGiftedProvider.tsx" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/stefanilie/Projects/halp/pusher-chatkit-gifted-chat/src/ChatRoomProvider.tsx">
+<testcase time="0" name="/Users/stefanilie/Projects/halp/pusher-chatkit-gifted-chat/src/ChatRoomProvider.tsx" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/stefanilie/Projects/halp/pusher-chatkit-gifted-chat/src/common.ts">
+<testcase time="0" name="/Users/stefanilie/Projects/halp/pusher-chatkit-gifted-chat/src/common.ts" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/stefanilie/Projects/halp/pusher-chatkit-gifted-chat/src/index.ts">
+<testcase time="0" name="/Users/stefanilie/Projects/halp/pusher-chatkit-gifted-chat/src/index.ts" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/stefanilie/Projects/halp/pusher-chatkit-gifted-chat/src/interfaces.ts">
+<testcase time="0" name="/Users/stefanilie/Projects/halp/pusher-chatkit-gifted-chat/src/interfaces.ts" />
+</testsuite>
+<testsuite package="org.eslint" time="0" tests="1" errors="0" name="/Users/stefanilie/Projects/halp/pusher-chatkit-gifted-chat/src/utils.ts">
+<testcase time="0" name="/Users/stefanilie/Projects/halp/pusher-chatkit-gifted-chat/src/utils.ts" />
+</testsuite>
+</testsuites>

@@ -19,7 +19,7 @@ const defaultState: ChatRoomState = {
   participants: [],
   setCurrentRoomId: identity,
   onSend: identity,
-  onSendAttachment: identity, 
+  onSendAttachment: identity,
   onInputTextChanged: identity,
 };
 
@@ -58,9 +58,9 @@ export const ChatRoomProvider = withChatkit(({ chatkit, children }: Props) => {
       parts: [{
         type: 'image/jpeg',
         url: attachmentUrl,
-      }]
+      }],
     });
-  }
+  };
 
   React.useEffect(() => {
     if (!currentRoomId) {
