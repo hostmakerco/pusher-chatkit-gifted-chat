@@ -19,6 +19,7 @@ const defaultState: ChatRoomState = {
   participants: [],
   setCurrentRoomId: identity,
   onSend: identity,
+  onSendAttachment: identity, 
   onInputTextChanged: identity,
 };
 
