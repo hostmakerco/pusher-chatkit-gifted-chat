@@ -48,6 +48,7 @@ export interface GiftedMessage {
   text: string,
   user: GiftedUser,
   createdAt: Date,
+  image: string,
 }
 
 export interface ChatRoomState {
@@ -57,6 +58,7 @@ export interface ChatRoomState {
   participants: PusherUser[],
   footer?: string,
   onSend(messages: GiftedMessage[]): void,
+  onSendAttachment(attachmentUrl: string): void,
   onInputTextChanged(inputText: string): void,
   setCurrentRoomId(roomId: string): void,
 }
