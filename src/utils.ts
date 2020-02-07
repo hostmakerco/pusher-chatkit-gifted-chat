@@ -12,7 +12,7 @@ export function toGiftedChatMessage(message: PusherMessage): GiftedMessage {
     id: message.id.toString(),
     _id: message.id.toString(),
     text: getPayload(message),
-    user: message.sender,
+    user: { ...message.sender, _id: message.sender.id },
     createdAt: new Date(message.createdAt),
   };
 }
