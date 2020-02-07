@@ -20,6 +20,7 @@ const defaultState: ChatRoomState = {
   participants: [],
   setCurrentRoomId: identity,
   onSend: identity,
+  onSendAttachment: identity,
   onInputTextChanged: identity,
 };
 
@@ -58,6 +59,16 @@ export const ChatRoomProvider = withChatkit(({ chatkit, children }: Props) => {
         text: message.text,
       });
     }
+  };
+
+  const onSendAttachment = async (attachmentUrl: string) => {
+    currentUser.sendMultipartMessage({
+      roomId: currentRoomId,
+      parts: [{
+        type: 'image/jpeg',
+        url: attachmentUrl,
+      }],
+    });
   };
 
   React.useEffect(() => {
@@ -145,6 +156,7 @@ export const ChatRoomProvider = withChatkit(({ chatkit, children }: Props) => {
         participants,
         footer,
         onSend,
+        onSendAttachment,
         onInputTextChanged,
         setCurrentRoomId,
       }}

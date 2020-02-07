@@ -7,6 +7,11 @@ const getPayload = (message: PusherMessage) => get(
   'parts[0].payload.content', 'Cannot render this message'
 );
 
+const getImage = (message: PusherMessage) => get(
+  message,
+  'parts[0].url'
+);
+
 export function toGiftedChatMessage(message: PusherMessage): GiftedMessage {
   return {
     id: message.id.toString(),
@@ -14,5 +19,6 @@ export function toGiftedChatMessage(message: PusherMessage): GiftedMessage {
     text: getPayload(message),
     user: { ...message.sender, _id: message.sender.id },
     createdAt: new Date(message.createdAt),
+    image: getImage(message),
   };
 }
