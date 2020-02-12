@@ -1,24 +1,30 @@
 import { get } from 'lodash';
 import { PusherMessage } from '@pusher/chatkit-client';
-import { GiftedMessage } from './interfaces';
+import { GiftedMessage, MessagePart } from './interfaces';
 
-const getPayload = (message: PusherMessage) => get(
+const getPayload = (message: MessagePart) => get(
+  // check if type of payload is image, then do getImage
   message,
-  'parts[0].payload.content', 'Cannot render this message'
+  'payload.content', message.partType !== 'url' ? 'Cannot render this message' : ''
 );
 
-const getImage = (message: PusherMessage) => get(
+const getImage = (message: MessagePart) => get(
   message,
-  'parts[0].url'
+  'payload.url', ''
 );
 
 export function toGiftedChatMessage(message: PusherMessage): GiftedMessage {
+  const { parts = [] } = message;
+
+  const messageText = getPayload(parts[0]);
+  const messageImage = getImage(parts[0]);
+
   return {
     id: message.id.toString(),
     _id: message.id.toString(),
-    text: getPayload(message),
+    text: messageText,
     user: { ...message.sender, _id: message.sender.id },
     createdAt: new Date(message.createdAt),
-    image: getImage(message),
+    image: messageImage,
   };
 }

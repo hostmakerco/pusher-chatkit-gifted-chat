@@ -62,6 +62,10 @@ export const ChatRoomProvider = withChatkit(({ chatkit, children }: Props) => {
   };
 
   const onSendAttachment = async (attachmentUrl: string) => {
+    if (!currentRoomId) {
+      return;
+    }
+
     currentUser.sendMultipartMessage({
       roomId: currentRoomId,
       parts: [{
