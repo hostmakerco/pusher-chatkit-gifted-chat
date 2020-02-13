@@ -1,20 +1,8 @@
-export interface PusherUser {
-  avatarURL?: string,
-  createdAt: string,
-  customData?: any,
-  id: string,
-  name: string,
-  updatedAt: string,
-}
+import { CurrentUser, PusherUser } from '@pusher/chatkit-client';
 
-export interface GiftedUser {
-  avatarURL?: string,
-  createdAt: string,
-  customData?: any,
-  id: string,
-  _id: string,
-  name: string,
-  updatedAt: string,
+export interface PusherChatkit {
+  currentUser: CurrentUser,
+  isLoading: boolean,
 }
 
 export interface PusherRoom {
@@ -35,11 +23,14 @@ export interface MessagePart {
   payload: any,
 }
 
-export interface MessageFromPusher {
+export interface GiftedUser {
+  avatarURL?: string,
+  createdAt: string,
+  customData?: any,
   id: string,
-  parts: MessagePart[],
-  sender: PusherUser,
-  createdAt: Date,
+  _id: string,
+  name: string,
+  updatedAt: string,
 }
 
 export interface GiftedMessage {
