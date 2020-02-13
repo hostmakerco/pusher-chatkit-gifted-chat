@@ -3,7 +3,7 @@ import { PusherMessage } from '@pusher/chatkit-client';
 import { GiftedMessage, MessagePart } from './interfaces';
 
 const getPayload = (message: MessagePart) => get(
-  // check if type of payload is image, then do getImage
+  // TODO: check if type of payload is image, then do getImage
   message,
   'payload.content', message.partType !== 'url' ? 'Cannot render this message' : ''
 );
