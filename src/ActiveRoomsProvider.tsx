@@ -58,21 +58,21 @@ export const ActiveRoomsProvider = withChatkit(({ chatkit, children }: Props) =>
   }, []);
 
   const onAddedToRoom = (addedRoom: PusherRoom) => {
-    const sortedRooms = sortRooms([addedRoom, ...activeRooms]);
-    setActiveRooms(sortedRooms);
+    setActiveRooms(prevActiveRooms => sortRooms([addedRoom, ...prevActiveRooms]));
   };
   useChatkitGlobalHook(chatkit, 'onAddedToRoom', onAddedToRoom);
 
   const onRemovedFromRoom = (removedRoom: PusherRoom) => {
-    setActiveRooms(activeRooms.filter(room => room.id !== removedRoom.id));
+    setActiveRooms(prevActiveRooms => prevActiveRooms.filter(room => room.id !== removedRoom.id));
   };
   useChatkitGlobalHook(chatkit, 'onRemovedFromRoom', onRemovedFromRoom);
 
   const onRoomUpdated = (updatedRoom: PusherRoom) => {
-    const newRooms = activeRooms.filter(room => room.id !== updatedRoom.id);
-    newRooms.push(updatedRoom);
-    const sortedRooms = sortRooms(newRooms);
-    setActiveRooms(sortedRooms);
+    setActiveRooms((prevActiveRooms) => {
+      const newRooms = prevActiveRooms.filter(room => room.id !== updatedRoom.id);
+      newRooms.push(updatedRoom);
+      return sortRooms(newRooms);
+    });
   };
   useChatkitGlobalHook(chatkit, 'onRoomUpdated', onRoomUpdated);
 
