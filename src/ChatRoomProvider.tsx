@@ -80,7 +80,7 @@ export const ChatRoomProvider = withChatkit(({ chatkit, children }: Props) => {
       return;
     }
 
-    const onReadMessage = debounce((messageId) => {
+    const onReadMessage = debounce((messageId: number) => {
       currentUser.setReadCursor({
         roomId: currentRoomId,
         position: messageId,
@@ -121,7 +121,7 @@ export const ChatRoomProvider = withChatkit(({ chatkit, children }: Props) => {
             const newMessage = toGiftedChatMessage(message);
             messageBuffer.push(newMessage);
             setMessages([...messageBuffer]);
-            onReadMessage(newMessage.id);
+            onReadMessage(message.id);
           },
           onUserStartedTyping,
           onUserStoppedTyping,
